@@ -1,0 +1,16 @@
+# build artifacts
+build/
+cmake-build-*/
+
+# binaries
+img3
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# editor / OS
+*.swp
+.DS_Store
