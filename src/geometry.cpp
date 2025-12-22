@@ -1,6 +1,9 @@
 #include "geometry.h"
 #include <cmath>
 
+
+// Базовые математические функции для работы алгоритма
+// Из названий понятно, что они делают
 double dist(const Point& a, const Point& b) {
     return std::hypot(a.x - b.x, a.y - b.y);
 }
@@ -14,7 +17,7 @@ double distancePointToLine(const Point& p, const Point& a, const Point& b) {
 
 Point centroid(const std::vector<Point>& contour) {
     Point c{0, 0};
-    for (const auto& p : contour) {
+    for (const Point& p : contour) {
         c.x += p.x;
         c.y += p.y;
     }
