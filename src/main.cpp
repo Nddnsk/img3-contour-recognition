@@ -91,10 +91,12 @@ int main(int argc, char* argv[]) {
     addPrototype(database, "SHIP", "data/ship/ship_a60_s2.0.txt", eps);
     addPrototype(database, "SHIP", "data/ship/ship_a90_s2.0.txt", eps);
 
+
+    // создаем словари для дальнейшего сравнения
     std::map<std::string, double> scoreSum;
     std::map<std::string, int> scoreCount;
 
-    //Сравнение с каждым элементом 
+    // Сравнение с каждым элементом 
     for (const auto& proto : database) {
         double d = compareContours(inputFeatures, proto.features);
         scoreSum[proto.objectName] += d;
@@ -105,6 +107,8 @@ int main(int argc, char* argv[]) {
     std::string bestObject;
     double bestScore = std::numeric_limits<double>::max();
 
+    // Выводим все наши значения по формуле ключ : значение
+    
     for (const auto& [name, sum] : scoreSum) {
         double avg = sum / scoreCount[name];
         std::cout << "Object " << name
